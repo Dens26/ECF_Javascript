@@ -1,0 +1,147 @@
+/* Général */
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-background: rgb(230, 230, 230);
+    --background-button: rgb(0, 119, 255);
+    --background-hoverButton: rgb(0, 94, 202);
+    --background-error: rgb(250, 217, 126);
+}
+
+body {
+    padding: clamp(5px, 5vw, 50px);
+    background: var(--main-background);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.error {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-error);
+    display: none;
+    max-width: 360px;
+}
+
+.error-msg {
+    padding: 8px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Sign-in */
+.signin {
+    display: grid;
+    grid-template-columns: repeat(1fr, 1fr);
+    max-width: 360px;
+    margin: 0 auto;
+    background: white;
+    margin: 10px auto;
+}
+
+.signin-form {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    grid-column: 1;
+}
+
+.signin-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Key */
+.numpad-key {
+    width: 215px;
+    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.key {
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+.numpad-button {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.button {
+    height: 30px;
+    width: 50px;
+    border: none;
+    color: white;
+    background: var(--background-button);
+}
+
+.button:hover {
+    background: var(--background-hoverButton);
+}
+
+/* Help */
+.help-container {
+    padding: 20px;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.help-info {
+    padding: 10px;
+    max-width: 300px;
+    background: var(--main-background);
+}
+
+.help-info span {
+    font-weight: 700;
+}
+
+.input {
+    height: 30px;
+    width: 100%;
+}
+
+@media screen and (min-width:768px) {
+
+    .signin,
+    .error {
+        max-width: 700px;
+    }
+
+    .help-container {
+        grid-column: 2;
+        justify-content: center;
+    }
+}
