@@ -53,17 +53,13 @@ export function addKeyEventListener(keys, password) {
  */
 export async function checkUser(user, password) {
     try {
-        const data = {
-            login : `${user.value}`,
-            password : `${password.value}`
-        };
+        const data = new FormData();
+        data.append("login", user.value);
+        data.append("password", password.value);
 
         const response = await fetch(`https://www.ericfree.net/formation/api/check_user.php`, {
             method : "POST",
-            headers : {
-                "Content-Type": "application/json"
-            },
-            body : JSON.stringify(data)
+            body : data
         });
         if (!response.ok) {
             throw new Error(`Erreur ${response.status}`);
