@@ -39,18 +39,18 @@ let numpadKey = document.createElement("div");
 numpadKey.className = "numpad-key";
 
 // Create a key array and mix the value
-let keyTab = [];
+const keyTab = [];
 for (let i = 0; i < 16; i++)
-    keyTab.push(createKeyButton(i));
+    keyTab.push(i);
 
 const keyTabMixed = [...keyTab];
-
 for (let i = keyTabMixed.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [keyTabMixed[i], keyTabMixed[j]] = [keyTabMixed[j], keyTabMixed[i]];
 }
-for (let key of keyTabMixed)
-    numpadKey.appendChild(key);
+
+for (const key of keyTabMixed)
+    numpadKey.appendChild(createKeyButton(key));
 
 // form button
 const numpadButton = document.createElement("div");
@@ -93,19 +93,14 @@ form.addEventListener("click", (evt) => {
         errorDiv.style.display = "none";
         errorMsg.textContent = "";
 
-        let keyTab = [];
-        for (let i = 0; i < 16; i++)
-            keyTab.push(createKeyButton(i));
-
         const keyTabMixed = [...keyTab];
-
         for (let i = keyTabMixed.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [keyTabMixed[i], keyTabMixed[j]] = [keyTabMixed[j], keyTabMixed[i]];
         }
-        for (let key of keyTabMixed)
-            numpadKey.appendChild(key);
 
+        for (const key of keyTabMixed)
+            numpadKey.appendChild(createKeyButton(key));
         password = addKeyEventListener(keys, password);
     }
 })

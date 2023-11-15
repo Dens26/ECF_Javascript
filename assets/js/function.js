@@ -11,6 +11,15 @@ export function createKeyButton(value) {
     key.title = value < 10 ? `Touche ${value}` : "Touche vierge";
     key.value = value < 10 ? value : "";
     key.style.background = value < 10 ? "rgb(200, 200, 200)": "";
+
+    key.addEventListener("mouseover", () => {
+        key.style.background = "rgb(170, 170, 170)";
+    });
+
+    // Ajout de l'événement lorsque la souris quitte l'élément
+    key.addEventListener("mouseout", () => {
+        key.style.backgroundColor = value < 10 ? "rgb(200, 200, 200)" : "";
+    });
     return key;
 }
 
